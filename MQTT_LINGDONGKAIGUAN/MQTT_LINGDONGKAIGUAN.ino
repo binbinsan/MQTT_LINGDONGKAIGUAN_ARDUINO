@@ -36,7 +36,7 @@
 #include <Preferences.h>    // ESP32参数保存库，用于将配置保存到非易失性存储器
 
 // 程序版本定义 - 当版本号变更时会触发所有参数重置
-#define FIRMWARE_VERSION "1.0.0"  // 当前固件版本号，修改此版本号会触发参数重置
+#define FIRMWARE_VERSION "1.0.1"  // 当前固件版本号，修改此版本号会触发参数重置
 #define VERSION_KEY "fw_version"  // 版本存储键名，用于存储当前版本
 
 // 默认引脚定义 - 可在配置界面中修改
@@ -50,7 +50,7 @@ char mqtt_server[40] = "";        // MQTT服务器地址，默认为空
 char mqtt_port[6] = "1883";       // MQTT服务器端口，默认为1883
 char mqtt_user[40] = "";          // MQTT用户名，默认为空
 char mqtt_password[40] = "";      // MQTT密码，默认为空
-char mqtt_topic[40] = "esp32";    // MQTT主题，默认为esp32
+char mqtt_topic[40] = "esp32c2";    // MQTT主题，默认为esp32c2
 
 // GPIO配置变量 - 存储当前使用的引脚配置
 char button_pin[3] = "9";    // 长按重置按钮引脚配置，默认为GPIO 9
