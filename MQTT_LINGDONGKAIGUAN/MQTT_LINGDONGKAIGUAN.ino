@@ -233,7 +233,7 @@ void publishData(const char* status) {
     Serial.println("MQTT数据已发送");
     
     // 特殊处理：如果是第一次系统启动消息，发送后关闭电源引脚
-    if (!firstMessageSent && strcmp(status, "system_startup") == 0) {
+    if (!firstMessageSent && strcmp(status, "system_startup") == 0&&digitalRead(atoi(button_pin)) == HIGH) {
       firstMessageSent = true;
       delay(500); // 短暂延时确保消息发送完成
       Serial.println("关闭电源引脚");
@@ -375,7 +375,7 @@ void setup() {
     Serial.println("准备进入休眠模式");
     
     // 如果第一次消息已发送，进入深度睡眠模式节省能源
-    if (firstMessageSent) {
+    if (firstMessageSent&&digitalRead(atoi(button_pin)) == HIGH) {
       Serial.println("正在进入深度睡眠模式...");
       delay(500);
       esp_deep_sleep_start();
